@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 ## Learning to Play Flappy Bird through Linear Genetic Programming
 
-My last year in college was spent researching [Evolutionary Computing](https://en.wikipedia.org/wiki/Evolutionary_computation/). There are three main steps in a genetic learning algorithm; scoring, selection, and mutation. Given a scorable problem, we will start by creating a population of randomly generated programs. We will run each of these programs against our program and score them. In the second step, we select a subset of our solutions based on their score. For the final step, we randomly mutate our programs by changing a small step of our program. By repeating this process, our programs undergo natural selection by being pressured to have a better score. Only the most fit will survive each generation until we have programs that can solve our initial problem.
+My last year in college was spent researching [Evolutionary Computing](https://en.wikipedia.org/wiki/Evolutionary_computation). There are three main steps in a genetic learning algorithm; scoring, selection, and mutation. Given a scorable problem, we will start by creating a population of randomly generated programs. We will run each of these programs against our program and score them. In the second step, we select a subset of our solutions based on their score. For the final step, we randomly mutate our programs by changing a small step of our program. By repeating this process, our programs undergo natural selection by being pressured to have a better score. Only the most fit will survive each generation until we have programs that can solve our initial problem.
 
 ## LGPy
 
@@ -23,9 +23,9 @@ While 1
 Close
 ```
 Before starting a program, some preprocessing must validate the program. A *Close* instruction is appended to the end of the program for each unclosed loop-type instruction. If a program is loaded in, each instruction without three arguments is padded with random arguments. The following shows an LGPy example of calculating 10 factorial.
-```
-**Insert picture here**
-```
+
+![Sample Factorial LGPy](/assets/FlappyDarwin/sample_factorial.png)
+{: style="margin: 0 auto;display: block;width: 50%;"}
 
 ## Selection
 The selection schemes included in LGPy are Elite, Roulette, Tournament, and Epsilon Lexicase. These selection schemes serve to decide which and how many programs survive to the next generation, potentially generating new programs in the process
@@ -46,7 +46,8 @@ Each frame, a bird's velocity increases by +0.981. When the *Jump* instruction i
 
 # Scoring
 In Flappy Bird, you are given one point for each pipe you cross. However, that is too steep of a learning curve for our programs to evolve. We instead use the following equation to determine score.
-```
- INSERT FORMULA
-```
+
+![Sample Factorial LGPy](/assets/FlappyDarwin/formula.png)
+{: style="margin: 0 auto;display: block;width: 50%;"}
+
 A flat bonus *f* is given to each bird representing the number of frames that have elapsed from the start to the time of the bird crashing. During each frame, the genome is rewarded or punished based on how close the bird’s y-coordinate is to the midpoint of the gap’s y-coordinate. d<sub>i</sub>, the absolute distance from the height of the bird and the height of the next closest gap’s midpoint is normalized by g, half the height of a gap and regulated down by a factor of 10. A single, large reward of 50 is given once when a bird’s y-coordinate crosses the y-coordinate of the midpoint. The number of unique gaps’ midpoints a bird crosses in a generation is denoted by x.
