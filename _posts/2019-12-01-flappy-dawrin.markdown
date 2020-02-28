@@ -23,9 +23,8 @@ While 1
 Close
 ```
 Before starting a program, some preprocessing must validate the program. A *Close* instruction is appended to the end of the program for each unclosed loop-type instruction. If a program is loaded in, each instruction without three arguments is padded with random arguments. The following shows an LGPy example of calculating 10 factorial.
-```
-**Insert picture here**
-```
+
+![Sample LGPy Factorial](/assets/FlappyDarwin/sample_factorial.png){: .align-center}
 
 ## Selection
 The selection schemes included in LGPy are Elite, Roulette, Tournament, and Epsilon Lexicase. These selection schemes serve to decide which and how many programs survive to the next generation, potentially generating new programs in the process
