@@ -8,7 +8,7 @@ github_username:  NateRiz
 github: [metadata]
 
 # Build settings
-#theme: jekyll-theme-tactile
+theme: minima
 plugins:
   - jekyll-feed
 
