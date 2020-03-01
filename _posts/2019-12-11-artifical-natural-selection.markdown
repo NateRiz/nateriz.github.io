@@ -27,7 +27,7 @@ This brings us to the third step, `Mutation`. We need a way to change Phil's way
 | Mutated Phil x3  | 0 | 36 |
 | Mutated Phil x1  | 2 | 36 |
 
-The originals did not change. 16 of the mutated Phils had no change in behavior. This would mean the mutation was neither harmful or beneficial and is the typical behavior of most mutations. Three of the mutated Phils received a score of 0. This example of a harmful mutation is less usual. Lastly, One mutated Phil, we will call Phip, has received an additional point. A beneficial mutation is typically the rarest. At this point we have a fully functional `Genetic Algorithm`. If we left these children alone for long enough, the cycle of `fitness, selection, and mutation` would eventually create some ACT prodigy who would score all 36 points.
+The originals did not change. 16 of the mutated Phils had no change in behavior. This would mean the mutation was neither harmful or beneficial and is the typical behavior of most mutations. Three of the mutated Phils received a score of 0. This example of a harmful mutation is less usual. Lastly, One mutated Phil, we will call Phip, has received an additional point. A beneficial mutation is typically the rarest. At this point we have a fully functional `Genetic Algorithm`. Phip will slowly take over the genetic pool until his own mutation, or possibly a mutation from a Phil, yields better results. If we left these children alone for long enough, the cycle of `fitness, selection, and mutation` would eventually create some ACT prodigy who would score all 36 points.
 
 ## Genetic Algorithms
 
