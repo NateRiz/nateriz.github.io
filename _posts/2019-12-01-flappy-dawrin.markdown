@@ -2,9 +2,9 @@
 layout: post
 title:  "Flappy Darwin"
 date:   2019-12-01 13:29:43 -0800
+categories: [Computational Evolution, Linear Genetic Programming]
+TOC: true
 ---
-
-Can a flappy bird learn how to fly through obstacles through natural selection and survival of the fittest? This study uses Evolutionary Computation to artificially evolve a program to play Flappy Bird.
 
 ## Learning to Play Flappy Bird through Linear Genetic Programming
 
