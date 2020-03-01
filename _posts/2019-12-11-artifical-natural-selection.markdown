@@ -33,7 +33,7 @@ The originals did not change. 16 of the mutated Phils had no change in behavior.
 
 We'll make a practical example of this in Python by maximizing the function:
 
-y=sin(1.2x)^3-sin(x) for 0 ≤ x ≤ 30
+y=sin(1.2x)<sup>3</sup>-sin(x) for 0 ≤ x ≤ 30
 
 ![Graph](/assets/ArtificialNaturalSelection/graph.png)
 
