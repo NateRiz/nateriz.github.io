@@ -39,7 +39,7 @@ y=sin(1.2x)<sup>3</sup>-sin(x) for 0 ≤ x ≤ 30
 
 Our first step is to initialize a population.
 
-``` Python
+```python
 from random import uniform
 
 
@@ -49,7 +49,7 @@ def main():
 
 The first step will be to create a fitness function. Given an input, our fitness function will tell us how will an individual did. Because we want to maximize our equation, we want a higher y-value. Our fitness function will take in an x-value and return its corresponding y-value.
 
-```Python
+```python
 from math import sin
 
 
@@ -59,7 +59,7 @@ def get_fitness(x):
 
 Next we'll add a selection scheme. There are many different selection schemes with their own use cases. For this I'll use [Tournament Selection](https://en.wikipedia.org/wiki/Tournament_selection). In tournament selection, we randomly select n individuals from the population and let them compete. The winner makes it to the next generation. We repeat this until we have a population for the next generation. In this case, we will have tourney sizes of n=2. We will only fill up 80% of the population pool and fill the rest with random organisms to prevent getting stuck at local maxima.
 
-```Python
+```python
 from random import choice
 
 
@@ -76,7 +76,7 @@ def get_next_population(population):
 
 Lastly we'll create a way for our population to mutate every generation. The mutation operator I'll choose will be to add a random amount in [-1, 1].
 
-```Python
+```python
 from random import random
 
 
