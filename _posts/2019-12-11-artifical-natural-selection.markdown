@@ -57,7 +57,7 @@ def get_fitness(x):
     return pow(sin(1.2 * x), 3) - sin(x)
 ```
 
-Next we'll add a selection scheme. There are many different selection schemes with their own use cases. For this I'll use [Tournament Selection](https://en.wikipedia.org/wiki/Tournament_selection). In tournament selection, we randomly select n individuals from the population and let them compete. The winner makes it to the next generation. We repeat this until we have a population for the next generation. In this case, divide the graph into 10 sections. All of the individuals in each section will compete, and one will win. The reason for this is to avoid local maxima. We will fill the remaining population with random organisms.
+Next we'll add a selection scheme. There are many different selection schemes with their own use cases. For this I'll use [Tournament Selection](https://en.wikipedia.org/wiki/Tournament_selection). In tournament selection, we randomly select n individuals from the population and let them compete. The winner makes it to the next generation. We repeat this until we have a population for the next generation. In this case, we will have tourney sizes of n=2. We will only fill up 80% of the population pool and fill the rest with random organisms to prevent getting stuck at local maxima.
 
 ```Python
 from random import choice
@@ -65,12 +65,10 @@ from random import choice
 
 def get_next_population(population):
     next_gen = []
-    section_size = 3
-    for i in range(10):
-        tourney = list(filter(lambda n: section_size * i <= n <= section_size*(i+1), population))
-        if tourney:
-            next_gen.append(max(tourney, key=lambda x: get_fitness(x)))
-
+    while len(next_gen) < len(population) * 0.8:
+        a, b = choice(population), choice(population)
+        winner = max(a, b, key=lambda x: get_fitness(x))
+        next_gen.append(winner)
     while len(next_gen) < len(population):
         next_gen.append(uniform(0, 30))
     return next_gen
@@ -79,7 +77,16 @@ def get_next_population(population):
 Lastly we'll create a way for our population to mutate every generation. The mutation operator I'll choose will be to add a random amount in [-1, 1].
 
 ```Python
+from random import random
+
+
 def mutate(population):
+    MUTATION_CHANCE = 0.2
     for i, p in enumerate(population):
-        population[i] = p + uniform(-1, 1)
+        if random() < MUTATION_CHANCE:
+            population[i] = clamp(p + uniform(-1, 1))
 ```
+
+To see the full code for the GA, you can visit [here](https://github.com/nateriz/MaximizingSin).
+
+![Animated GA](/assets/ArtificialNaturalSelection/anim_ga.gif)
