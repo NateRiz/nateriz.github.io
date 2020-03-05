@@ -10,6 +10,9 @@ TOC: true
 
 Can a flappy bird learn how to fly through obstacles through natural selection and survival of the fittest? This study uses Evolutionary Computation to artificially evolve a program to play Flappy Bird. I previously talked about LinearGP and Evolutionary Computation in my previous post: [Artificial Natural Selection](/_posts/2019-12-11-intro-to-evolutionary-computation.markdown)
 
+![FlappyBird](/assets/FlappyDarwin/flappybird.gif)
+{: style="margin: 0 auto;display: block;width: 50%;"}
+
 ## LGPy
 
 In Linear Genetic Programming, a sequence of arm-like instructions represent a program. In developing this project, I began by creating a Python library for Linear GP, inspired by [Alex Lalejini's Signal GP](https://arxiv.org/pdf/1804.05445.pdf). LGPy is a container that creates virtual hardware. Each hardware contains a program with a set of instructions and a memory buffer of 24 registers by default. Registers hold decimal values clamped between -2<sup>31</sup> and 2<sup>31</sup>. The catalog of instructions available to a hardware are contained in an instruction library. By default, these include boolean, arithmetic, and comparison operators. Control flow is added to the instruction set as well. PyGP instructions each contain three optional arguments. These arguments can either refer to a literal or a value stored in a register. Instructions can use any subset of these arguments. Take the following two instructions:
@@ -46,6 +49,8 @@ To begin, a population of programs will be initiated with a set of random instru
 * Jump - Sets the birds y-velocity to -10.0
 Each frame, a bird's velocity increases by +0.981. When the *Jump* instruction is run, the velocity is reset to -10.0.
 
+![Custom Instructions](/assets/FlappyDarwin/custom_instructions.png)
+
 # Scoring
 In Flappy Bird, you are given one point for each pipe you cross. However, that is too steep of a learning curve for our programs to evolve. We instead use the following equation to determine score.
 
@@ -53,3 +58,6 @@ In Flappy Bird, you are given one point for each pipe you cross. However, that i
 {: style="margin: 0 auto;display: block;width: 50%;"}
 
 A flat bonus *f* is given to each bird representing the number of frames that have elapsed from the start to the time of the bird crashing. During each frame, the genome is rewarded or punished based on how close the bird’s y-coordinate is to the midpoint of the gap’s y-coordinate. d<sub>i</sub>, the absolute distance from the height of the bird and the height of the next closest gap’s midpoint is normalized by g, half the height of a gap and regulated down by a factor of 10. A single, large reward of 50 is given once when a bird’s y-coordinate crosses the y-coordinate of the midpoint. The number of unique gaps’ midpoints a bird crosses in a generation is denoted by x.
+
+
+# Results

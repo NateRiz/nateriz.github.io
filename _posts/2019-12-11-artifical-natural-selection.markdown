@@ -8,7 +8,7 @@ TOC: true
 
 ## Intro to Evolutionary Computation
 
-My last year in college was spent researching [Evolutionary Computing](https://en.wikipedia.org/wiki/Evolutionary_computation). Many people have the wrong idea about how evolution works. when species evolve,  they dont spontaneously and synchronously decide to grow wings or switch from gils to lungs, they are merely adapting to their environment through mutations. Giraffes necks weren't always as long as they are now. There was an evolutionary advantage to the taller creatures who could reach the leaves in trees. These taller creatures had an easier time eating than their shorter relatives and were able to reproduce more as a result. The taller giraffes were the more fit of the population. This is the core principle of survival of the fittest. This is also what we aim to mimic in Evolutionary Computation.
+My last year in college was spent researching [Evolutionary Computing](https://en.wikipedia.org/wiki/Evolutionary_computation). Many people have the wrong idea about how evolution works. When species evolve, they don't spontaneously and synchronously decide to grow wings or switch from gills to lungs. They are merely adapting to their environment through mutations. Giraffes' necks weren't always as long as they are now. There was an evolutionary advantage to the taller creatures who could reach the leaves in trees. These taller creatures had an easier time eating than their shorter relatives and reproduced more as a result. The taller giraffes were the more fit of the population. This is the core principle of survival of the fittest. This is also what we aim to mimic in Evolutionary Computation.
 
 ## These Three Weird Steps that Created Humans!
 
