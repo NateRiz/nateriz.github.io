@@ -61,3 +61,7 @@ A flat bonus *f* is given to each bird representing the number of frames that ha
 
 
 # Results
+
+Programs are able to evolve that can run indefinitely without running into obstacles. It is worth nothing that the only selection scheme that would evolve a solution is epsilon lexicase. Elite, roulette and tournament all came up with naive solutions that got stuck at local maxima.
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/iK5PuPbgf0M" frameborder="0" allowfullscreen></iframe>
